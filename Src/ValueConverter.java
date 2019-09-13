@@ -1,6 +1,9 @@
 public class ValueConverter {
+    ValueConverterTest test = new ValueConverterTest();
+
     public static void main(String[] args) {
         //WIP
+        airPressure()
 
     }
     /** airPressure

@@ -1,9 +1,50 @@
 public class ValueConverter {
-    ValueConverterTest test = new ValueConverterTest();
-
     public static void main(String[] args) {
-        //WIP
-        airPressure()
+        //luchtdruk
+        short rawValue = 0;
+        System.out.println("de luchtdruk is: "+airPressure(rawValue)+" HPa");
+        //binnentemp
+        short tempfbi = 0;
+        System.out.println("de binnentemperatuur is: "+temperature(tempfbi)+" C");
+        //binnen luchtvochtigheid
+        short humbin = 0;
+        System.out.println("de binnen luchtvochtigheid is: "+humidity(humbin)+" %");
+        //buiten temperatuur
+        short tempfbu = 0;
+        double tempbuiten = temperature(tempfbu);
+        System.out.println("de buiten temperatuur is: "+tempbuiten+" C");
+        //windspeed
+        short windsnel = 0;
+        System.out.println("de windsnelheid is: "+windSpeed(windsnel)+" km/h");
+        //avg windspeed
+        rawValue = 0;
+        System.out.println("de gemiddelde windsnelheid is: "+windSpeed(rawValue)+" km/h");
+        //windrichting
+        rawValue = 0;
+        System.out.println("de windrichting is: "+windDirection(rawValue)+" graden");
+        //buiten luchtvochtigheid
+        short humbui = 0;
+        System.out.println("de buiten luchtvochtigheid is: "+humidity(humbui)+" %");
+        //rainrate
+        rawValue = 0;
+        System.out.println("de regenrate is: "+rainMeter(rawValue)+" mm");
+        //uvlevel
+        rawValue = 0;
+        System.out.println("de uv level is: "+uvIndex(rawValue));
+        //batt level
+        rawValue = 0;
+        System.out.println("de batterij niveau is: "+batteryLevel(rawValue)+" Volt");
+        //sunrise
+        rawValue = 0;
+        System.out.println("de zonsopgang is om: "+sunRise(rawValue));
+        //Sunset
+        rawValue = 0;
+        System.out.println("de zonsondergang is om: "+sunSet(rawValue));
+        //windchill
+        System.out.println("de windchill is: "+windChill(windsnel,tempfbu));
+        //dewpoint
+        System.out.println("de dewpoint is: "+dewpoint(humbui,tempbuiten));
+
 
     }
     /** airPressure
@@ -14,7 +55,6 @@ public class ValueConverter {
     public static double airPressure(short rawValue){
         double HPa = 33.86389 * rawValue / 1000;
         return HPa;
-
     }
     /** temperature
      *
@@ -22,8 +62,7 @@ public class ValueConverter {
      * @return De temperatuur in graden Celcius
      */
     public static double temperature(short rawValue){
-        double temp = ((rawValue - 32)/ 1.8);
-
+        double temp = ((rawValue/10) - 32)/ 1.8;
         return temp;
     }
     /** humidity
@@ -129,13 +168,20 @@ public class ValueConverter {
     }
     /**
      * Windchill
-     *
-     * @param rawValue Ruwe meetwaarde van het vp2pro weerstation
      * @return Wind chill
      */
-    public static String windChill(short rawValue){
-        //WIP
-        return "0";
+    public static double windChill(short windsnel,short tempfbu){
+        double windchill = 0.0817*(3.71 * windsnel *0.5 +5.81-0.25* windsnel) * (tempfbu -9.14)+91.4;
+        //V in mph en T in fahrenheid
+        return windchill;
+    }
+    //dewpoint
+
+    public static double dewpoint(short humbui,double tempbuiten){
+
+        double dewpoint  = Math.pow(humbui *0.01*6.112,((17.62*tempbuiten)/(tempbuiten+243.12)));
+        //RH relatieve luchtvochtigheid en T in celsius
+        return dewpoint;
     }
 
 

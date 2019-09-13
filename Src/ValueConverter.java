@@ -1,6 +1,54 @@
 public class ValueConverter {
     public static void main(String[] args) {
-        //WIP
+        //luchtdruk
+        short rawValue = 0;
+        System.out.println("de luchtdruk is: "+airPressure(rawValue)+" HPa");
+        //binnentemp
+        rawValue = 0;
+        System.out.println("de binnentemperatuur is: "+temperature(rawValue)+" C");
+        //binnen luchtvochtigheid
+        rawValue = 0;
+        System.out.println("de binnen luchtvochtigheid is: "+humidity(rawValue)+" %");
+        //buiten temperatuur
+        rawValue = 0;
+        System.out.println("de buiten temperatuur is: "+airPressure(rawValue)+" C");
+        //windspeed
+        rawValue = 0;
+        System.out.println("de windsnelheid is: "+windSpeed(rawValue)+" km/h");
+        //avg windspeed
+        rawValue = 0;
+        System.out.println("de gemiddelde windsnelheid is: "+windSpeed(rawValue)+" km/h");
+        //windrichting
+        rawValue = 0;
+        System.out.println("de windrichting is: "+windDirection(rawValue)+" graden");
+        //buiten luchtvochtigheid
+        rawValue = 0;
+        System.out.println("de buiten luchtvochtigheid is: "+humidity(rawValue)+" %");
+        //rainrate
+        rawValue = 0;
+        System.out.println("de regenrate is: "+rainMeter(rawValue)+" mm");
+        //windspeed
+        rawValue = 0;
+        System.out.println("de luchtdruk is: "+windSpeed(rawValue)+" km/h");
+        //uvlevel
+        rawValue = 0;
+        System.out.println("de uv level is: "+uvIndex(rawValue));
+        //batt level
+        rawValue = 0;
+        System.out.println("de batterij niveau is: "+batteryLevel(rawValue)+" Volt");
+        //sunrise
+        rawValue = 0;
+        System.out.println("de zonsopgang is om: "+sunRise(rawValue));
+        //Sunset
+        rawValue = 0;
+        System.out.println("de zonsondergang is om: "+sunSet(rawValue));
+
+
+
+
+
+
+
 
     }
     /** airPressure
@@ -19,7 +67,7 @@ public class ValueConverter {
      * @return De temperatuur in graden Celcius
      */
     public static double temperature(short rawValue){
-        double temp = ((rawValue - 32)/ 1.8);
+        double temp = ((rawValue/10) - 32)/ 1.8;
 
         return temp;
     }
@@ -132,6 +180,17 @@ public class ValueConverter {
      */
     public static String windChill(short rawValue){
         //WIP
+        //0.0817*(3.71 * V *0.5 +5.81-0.25* V) * (T -9.14)+91.4
+        //V in mph en T in fahrenheid
+        return "0";
+    }
+    //dewpoint
+    //v = RH *0.01*6.112*exp[(17.62*T)/(T+243.12)]
+    //RH relatieve luchtvochtigheid en T in celsius
+    public static String dewpoint(short rawValue){
+        //WIP
+        //0.0817*(3.71 * V *0.5 +5.81-0.25* V) * (T -9.14)+91.4
+        //V in mph en T in fahrenheid
         return "0";
     }
 

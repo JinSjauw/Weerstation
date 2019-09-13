@@ -1,49 +1,97 @@
 public class ValueConverter {
+    ValueConverterTest test = new ValueConverterTest();
+
     public static void main(String[] args) {
+
         //luchtdruk
         short rawValue = 0;
         System.out.println("de luchtdruk is: "+airPressure(rawValue)+" HPa");
+
+        test.Testpressure(airPressure(rawValue));
+
         //binnentemp
         short tempfbi = 0;
         System.out.println("de binnentemperatuur is: "+temperature(tempfbi)+" C");
+
+        test.Testtempbinnen(temperature(tempfbi));
+
         //binnen luchtvochtigheid
         short humbin = 0;
         System.out.println("de binnen luchtvochtigheid is: "+humidity(humbin)+" %");
+
+        test.Testhumiditybinnen(humidity(humbin));
+
         //buiten temperatuur
         short tempfbu = 0;
         double tempbuiten = temperature(tempfbu);
         System.out.println("de buiten temperatuur is: "+tempbuiten+" C");
+
+        test.Testtempbuiten(temperature(tempfbu));
+
         //windspeed
         short windsnel = 0;
         System.out.println("de windsnelheid is: "+windSpeed(windsnel)+" km/h");
+
+        test.Testwindspeed(windSpeed(windsnel));
+
         //avg windspeed
         rawValue = 0;
         System.out.println("de gemiddelde windsnelheid is: "+windSpeed(rawValue)+" km/h");
+
+        test.Testavgwindspeed(windSpeed(rawValue));
+
         //windrichting
         rawValue = 0;
         System.out.println("de windrichting is: "+windDirection(rawValue)+" graden");
+
+        test.Testwindrichting(windDirection(rawValue));
+
         //buiten luchtvochtigheid
         short humbui = 0;
         System.out.println("de buiten luchtvochtigheid is: "+humidity(humbui)+" %");
+
+        test.Testhumiditybuiten(humidity(humbui));
+
         //rainrate
         rawValue = 0;
         System.out.println("de regenrate is: "+rainMeter(rawValue)+" mm");
+
+        test.Testrainrate(rainMeter(rawValue));
+
         //uvlevel
         rawValue = 0;
         System.out.println("de uv level is: "+uvIndex(rawValue));
+
+        test.Testuvlevel(uvIndex(rawValue));
+
         //batt level
         rawValue = 0;
         System.out.println("de batterij niveau is: "+batteryLevel(rawValue)+" Volt");
+
+        test.Testbattlevel(batteryLevel(rawValue));
+
         //sunrise
         rawValue = 0;
         System.out.println("de zonsopgang is om: "+sunRise(rawValue));
+
+        test.Testsunrise(sunRise(rawValue));
+
         //Sunset
         rawValue = 0;
         System.out.println("de zonsondergang is om: "+sunSet(rawValue));
+
+        test.Testsunset(sunSet(rawValue));
+
         //windchill
         System.out.println("de windchill is: "+windChill(windsnel,tempfbu));
+
+        test.Testwindchill(windChill(windsnel,tempfbu));
+
         //dewpoint
         System.out.println("de dewpoint is: "+dewpoint(humbui,tempbuiten));
+
+        test.Testdewpoint(dewpoint(humbui,tempbuiten));
+
 
 
     }

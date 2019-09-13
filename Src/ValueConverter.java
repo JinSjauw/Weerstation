@@ -1,8 +1,14 @@
 public class ValueConverter {
-    public static void main(String[] args) {
+    ValueConverterTest test = new ValueConverterTest();
+
+    public void main(String[] args) {
+
         //luchtdruk
         short rawValue = 0;
         System.out.println("de luchtdruk is: "+airPressure(rawValue)+" HPa");
+
+        test.TestDouble(airPressure(rawValue));
+
         //binnentemp
         short tempfbi = 0;
         System.out.println("de binnentemperatuur is: "+temperature(tempfbi)+" C");

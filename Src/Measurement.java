@@ -7,7 +7,9 @@ public class Measurement implements Serializable
 {
     RawMeasurement RawData = DatabaseConnection.getMostRecentMeasurement();
 
+    //Maak een class (object?) aan
     RawMeasurement raw;
+    //--------------------------------
     private String stationId;
     private LocalDateTime dateStamp;
     private double airpressure;
@@ -32,6 +34,7 @@ public class Measurement implements Serializable
 
     }
 
+    //Methode om alle setters te roepen
     public void ReturnAll()
     {
         setStationId();
@@ -55,6 +58,8 @@ public class Measurement implements Serializable
         setAirpressure();
     }
 
+    //Maak een setter en getter aan om een object te ontvangen
+
     public void setData(RawMeasurement RD){
 
         this.raw = RD;
@@ -64,6 +69,9 @@ public class Measurement implements Serializable
     {
         return raw;
     }
+    // -------------------------------------------------------------
+
+    //Vanaf hier bij alle setters de ValueConverter class implementeren.
 
     // stationId
     public void setStationId ()
@@ -273,12 +281,12 @@ public class Measurement implements Serializable
         long dtemp2 = Math.round(outsideTempC*10);
         outsideTempC = dtemp2/10.0;
 
-        //afrondign wind
+        //afronding wind
         long dwind = Math.round(windSpeedkmh*10);
         windSpeedkmh = dwind/10.0;
         long dwindavg = Math.round(avgWindSpeedkmh*10);
         avgWindSpeedkmh = dwindavg/10.0;
-
+        //affronding battlvl
         long dbattlvl = Math.round(battLevel*10);
         battLevel = dbattlvl/10.0;
 

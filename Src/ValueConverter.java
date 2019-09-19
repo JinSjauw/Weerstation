@@ -2,7 +2,7 @@ public class ValueConverter {
     ValueConverterTest test = new ValueConverterTest();
     //excel regel 748
 
-    public static void main(String[] args) {
+    //public static void main(String[] args) {
 
         //luchtdruk
         //short rawValue = 30189;
@@ -96,13 +96,14 @@ public class ValueConverter {
 
 
 
-    }
+    //}
     /** airPressure
      *
      * @param rawValue Ruwe meetwaarde van het vp2pro weerstation
      * @return De luchtdruk in hPa
      */
     public static double airPressure(short rawValue){
+
         double HPa = 33.86389 * rawValue / 1000;
         long decimal = Math.round(HPa*10);
         HPa = decimal/10.0;

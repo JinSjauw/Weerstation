@@ -5,94 +5,94 @@ public class ValueConverter {
     public static void main(String[] args) {
 
         //luchtdruk
-        short rawValue = 30189;
-        System.out.println("de luchtdruk is: "+airPressure(rawValue)+" HPa");
+        //short rawValue = 30189;
+        //System.out.println("de luchtdruk is: "+airPressure(rawValue)+" HPa");
 
-        ValueConverterTest.Testpressure(airPressure(rawValue));
+        //ValueConverterTest.Testpressure(airPressure(rawValue));
 
         //binnentemp
-        short tempfbi = 797;
-        System.out.println("de binnentemperatuur is: "+temperature(tempfbi)+" C");
+        //short tempfbi = 797;
+        //System.out.println("de binnentemperatuur is: "+temperature(tempfbi)+" C");
 
 
-        ValueConverterTest.Testtempbinnen(temperature(tempfbi));
+        //ValueConverterTest.Testtempbinnen(temperature(tempfbi));
 
         //binnen luchtvochtigheid
-        short humbin = 44;
-        System.out.println("de binnen luchtvochtigheid is: "+humidity(humbin)+" %");
+        //short humbin = 44;
+        //System.out.println("de binnen luchtvochtigheid is: "+humidity(humbin)+" %");
 
-        ValueConverterTest.Testhumiditybinnen(humidity(humbin));
+        //ValueConverterTest.Testhumiditybinnen(humidity(humbin));
 
         //buiten temperatuur
-        short tempfbu = 608;
-        double tempbuiten = temperature(tempfbu);
-        System.out.println("de buiten temperatuur is: "+tempbuiten+" C");
+        //short tempfbu = 608;
+        //double tempbuiten = temperature(tempfbu);
+        //System.out.println("de buiten temperatuur is: "+tempbuiten+" C");
 
-        ValueConverterTest.Testtempbuiten(temperature(tempfbu));
+        //ValueConverterTest.Testtempbuiten(temperature(tempfbu));
 
         //windspeed
-        short windsnel = 9;
-        System.out.println("de windsnelheid is: "+windSpeed(windsnel)+" km/h");
+        //short windsnel = 9;
+        //System.out.println("de windsnelheid is: "+windSpeed(windsnel)+" km/h");
 
-        ValueConverterTest.Testwindspeed(windSpeed(windsnel));
+        //ValueConverterTest.Testwindspeed(windSpeed(windsnel));
 
         //avg windspeed
-        rawValue = 6;
-        System.out.println("de gemiddelde windsnelheid is: "+windSpeed(rawValue)+" km/h");
+        //rawValue = 6;
+        //System.out.println("de gemiddelde windsnelheid is: "+windSpeed(rawValue)+" km/h");
 
-        ValueConverterTest.Testavgwindspeed(windSpeed(rawValue));
+        //ValueConverterTest.Testavgwindspeed(windSpeed(rawValue));
 
         //windrichting
-        rawValue = 195;
-        System.out.println("de windrichting is: "+windDirection(rawValue)+" graden");
+        //rawValue = 195;
+        //System.out.println("de windrichting is: "+windDirection(rawValue)+" graden");
 
-        ValueConverterTest.Testwindrichting(windDirection(rawValue));
+        //ValueConverterTest.Testwindrichting(windDirection(rawValue));
 
         //buiten luchtvochtigheid
-        short humbui = 90;
-        System.out.println("de buiten luchtvochtigheid is: "+humidity(humbui)+" %");
+        //short humbui = 90;
+        //System.out.println("de buiten luchtvochtigheid is: "+humidity(humbui)+" %");
 
-        ValueConverterTest.Testhumiditybuiten(humidity(humbui));
+        //ValueConverterTest.Testhumiditybuiten(humidity(humbui));
 
         //rainrate
-        rawValue = 0;
-        System.out.println("de regenrate is: "+rainMeter(rawValue)+" mm");
+        //rawValue = 0;
+        //System.out.println("de regenrate is: "+rainMeter(rawValue)+" mm");
 
-        ValueConverterTest.Testrainrate(rainMeter(rawValue));
+        //ValueConverterTest.Testrainrate(rainMeter(rawValue));
 
         //uvlevel
-        rawValue = 9;
-        System.out.println("de uv level is: "+uvIndex(rawValue));
+        //rawValue = 9;
+        //System.out.println("de uv level is: "+uvIndex(rawValue));
 
-        ValueConverterTest.Testuvlevel(uvIndex(rawValue));
+        //ValueConverterTest.Testuvlevel(uvIndex(rawValue));
 
         //batt level
-        rawValue = 660;
-        System.out.println("de batterij niveau is: "+batteryLevel(rawValue)+" Volt");
+        //rawValue = 660;
+        //System.out.println("de batterij niveau is: "+batteryLevel(rawValue)+" Volt");
 
-        ValueConverterTest.Testbattlevel(batteryLevel(rawValue));
+        //ValueConverterTest.Testbattlevel(batteryLevel(rawValue));
 
         //sunrise
-        rawValue = 710;
-        System.out.println("de zonsopgang is om: "+sunRise(rawValue));
+        //rawValue = 710;
+        //System.out.println("de zonsopgang is om: "+sunRise(rawValue));
 
-        ValueConverterTest.Testsunrise(sunRise(rawValue));
+        //ValueConverterTest.Testsunrise(sunRise(rawValue));
 
         //Sunset
-        rawValue = 2007;
-        System.out.println("de zonsondergang is om: "+sunSet(rawValue));
+        //rawValue = 2007;
+        //System.out.println("de zonsondergang is om: "+sunSet(rawValue));
 
-        ValueConverterTest.Testsunset(sunSet(rawValue));
+        //ValueConverterTest.Testsunset(sunSet(rawValue));
 
         //windchill
-        System.out.println("de windchill is: "+windChill(windsnel,tempfbu));
+        //System.out.println("de windchill is: "+windChill(windsnel,tempfbu));
 
-        ValueConverterTest.Testwindchill(windChill(windsnel,tempfbu));
+        //ValueConverterTest.Testwindchill(windChill(windsnel,tempfbu));
 
         //dewpoint
-        System.out.println("de dewpoint is: "+dewpoint(humbui,tempbuiten));
+        //System.out.println("de dewpoint is: "+dewpoint(humbui,tempbuiten));
 
-        ValueConverterTest.Testdewpoint(dewpoint(humbui,tempbuiten));
+        //ValueConverterTest.Testdewpoint(dewpoint(humbui,tempbuiten));
 
 
 

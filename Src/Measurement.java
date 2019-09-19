@@ -1,3 +1,4 @@
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class Measurement {
@@ -7,7 +8,6 @@ public class Measurement {
         System.out.println(ValueConverter.sunSet(measurement.getSunset()));
         System.out.println(ValueConverter.airPressure(measurement.getBarometer()));
         System.out.println(ValueConverter.temperature(measurement.getInsideTemp()));
-
 
     }
 }

@@ -6,7 +6,6 @@ public class User {
         Measurement ND = new Measurement();
 
 
-
         ND.setStationId(RD.getStationId());
         ND.setDateStamp(RD.getDateStamp());
         ND.setAirpressure(ValueConverter.temperature(RD.getBarometer()));
@@ -29,6 +28,9 @@ public class User {
         System.out.println(RD);
         System.out.println("");
         System.out.println(ND);
+
+    }
+    public static void gui(String[] args){
 
     }
 }

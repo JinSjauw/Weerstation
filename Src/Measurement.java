@@ -23,8 +23,11 @@ public class Measurement implements Serializable
     private String sunrise;
     private String sunset;
 
-    public Measurement()
+    public Measurement(String statiodId, LocalDateTime dateStamp, double airPressure)
     {
+        this.stationId = stationId;
+        this.dateStamp = dateStamp;
+        this.airpressure = airPressure;
 
     }
 

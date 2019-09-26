@@ -105,8 +105,10 @@ public class ValueConverter {
     public static double airPressure(short rawValue){
 
         double HPa = 33.86389 * rawValue / 1000;
-        long decimal = Math.round(HPa*10);
-        HPa = decimal/10.0;
+
+//        long decimal = Math.round(HPa*10);
+//        HPa = decimal/10.0;
+
         return HPa;
     }
     /** temperature
@@ -116,8 +118,10 @@ public class ValueConverter {
      */
     public static double temperature(short rawValue){
         double temp = (((rawValue/10.0) - 32.0)/1.8);
-        long decimal = Math.round(temp*10);
-        temp = decimal/10.0;
+
+//        long decimal = Math.round(temp*10);
+//        temp = decimal/10.0;
+
         return temp;
     }
     /** humidity
@@ -137,8 +141,8 @@ public class ValueConverter {
      */
     public static double windSpeed(short rawValue){
         double wspeed = rawValue*1.609;
-        long decimal = Math.round(wspeed*10);
-        wspeed = decimal/10.0;
+//        long decimal = Math.round(wspeed*10);
+//        wspeed = decimal/10.0;
         return wspeed;
     }
     /** windDirection
@@ -177,8 +181,10 @@ public class ValueConverter {
      */
     public static double batteryLevel(short rawValue){
         double bat = ((rawValue * 300)/512)/100.0;
-        long decimal = Math.round(bat*10);
-        bat = decimal/10.0;
+
+//        long decimal = Math.round(bat*10);
+//        bat = decimal/10.0;
+
         return bat;
     }
     /** sunRise
@@ -231,8 +237,10 @@ public class ValueConverter {
     public static double windChill(short windsnel,short tempfbu){
         double windchill = 0.0817*(3.71 * windsnel *0.5 +5.81-0.25* windsnel) * (tempfbu/10.0 -9.14)+91.4;
         //V in mph en T in fahrenheid
-        long decimal = Math.round(windchill*10);
-        windchill = decimal/10.0;
+
+//        long decimal = Math.round(windchill*10);
+//        windchill = decimal/10.0;
+
         return windchill;
     }
     //dewpoint
@@ -241,8 +249,10 @@ public class ValueConverter {
 
         double dewpoint  = Math.pow((humbui *0.01*6.112),((17.62*tempbuiten)/(tempbuiten+243.12)));
         //RH relatieve luchtvochtigheid en T in celsius
-        long decimal = Math.round(dewpoint*10);
-        dewpoint = decimal/10.0;
+
+//        long decimal = Math.round(dewpoint*10);
+//        dewpoint = decimal/10.0;
+
         return dewpoint;
     }
 

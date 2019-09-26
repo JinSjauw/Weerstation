@@ -1,14 +1,14 @@
-import com.sun.jdi.Value;
+//import com.sun.jdi.Value;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
 public class Measurement implements Serializable
 {
-    RawMeasurement RawData = DatabaseConnection.getMostRecentMeasurement();
+  //  RawMeasurement RawData = DatabaseConnection.getMostRecentMeasurement();
 
     //Maak een class (object?) aan
-    RawMeasurement raw;
+    //RawMeasurement raw;
     //--------------------------------
     private String stationId;
     private LocalDateTime dateStamp;
@@ -29,58 +29,75 @@ public class Measurement implements Serializable
     private String sunrise;
     private String sunset;
 
-    public Measurement(String statiodId, LocalDateTime dateStamp, double airPressure)
+    public Measurement(String stationId, LocalDateTime dateStamp, double airpressure, double insideTempC, double insideHum, double outsideTempC,
+                        double windSpeedkmh, double avgWindSpeedkmh, double windDir, double outsideHum, double rainRatemm, double UVLevel, double solarRad,
+                        double xmitBatt, double battLevel, double foreIcon, String sunrise, String sunset)
     {
         this.stationId = stationId;
         this.dateStamp = dateStamp;
-        this.airpressure = airPressure;
+        this.airpressure = airpressure;
+        this.insideTempC = insideTempC;
+        this.insideHum = insideHum;
+        this.outsideTempC = outsideTempC;
+        this.windSpeedkmh = windSpeedkmh;
+        this.avgWindSpeedkmh = avgWindSpeedkmh;
+        this.windDir = windDir;
+        this.outsideHum = outsideHum;
+        this.rainRatemm = rainRatemm;
+        this.UVLevel = UVLevel;
+        this.solarRad = solarRad;
+        this.xmitBatt = xmitBatt;
+        this.battLevel = battLevel;
+        this.foreIcon = foreIcon;
+        this.sunrise = sunrise;
+        this.sunset = sunset;
 
     }
 
     //Methode om alle setters te roepen
-    public void ReturnAll()
-    {
-        setStationId();
-        setDateStamp();
-        setAirpressure();
-        setInsideTemp();
-        setInsideHum();
-        setOutsideTemp();
-        setOutsideHum();
-        setWindSpeed();
-        setAvgWindSpeed();
-        setWindDir();
-        setRainRate();
-        setUVLevel();
-        setSolarRad();
-        setXmitBatt();
-        setBattLevel();
-        setForeIcon();
-        setSunset();
-        setSunrise();
-        setAirpressure();
-    }
+//    public void ReturnAll()
+//    {
+//        setStationId();
+//        setDateStamp();
+//        setAirpressure();
+//        setInsideTemp();
+//        setInsideHum();
+//        setOutsideTemp();
+//        setOutsideHum();
+//        setWindSpeed();
+//        setAvgWindSpeed();
+//        setWindDir();
+//        setRainRate();
+//        setUVLevel();
+//        setSolarRad();
+//        setXmitBatt();
+//        setBattLevel();
+//        setForeIcon();
+//        setSunset();
+//        setSunrise();
+//        setAirpressure();
+//    }
 
     //Maak een setter en getter aan om een object te ontvangen
 
-    public void setData(RawMeasurement RD){
-
-        this.raw = RD;
-    }
-
-    public Object getData ()
-    {
-        return raw;
-    }
+//    public void setData(RawMeasurement RD){
+//
+//        this.raw = RD;
+//    }
+//
+//    public Object getData ()
+//    {
+//        return raw;
+//    }
     // -------------------------------------------------------------
 
     //Vanaf hier bij alle setters de ValueConverter class implementeren.
 
     // stationId
-    public void setStationId ()
-    {
-        this.stationId = raw.getStationId();
-    }
+//    public void setStationId ()
+//    {
+//        this.stationId = raw.getStationId();
+//    }
 
     public String getStationId()
     {
@@ -88,10 +105,10 @@ public class Measurement implements Serializable
     }
 
     // dateStamp
-    public void setDateStamp ()
-    {
-        this.dateStamp = raw.getDateStamp() ;
-    }
+//    public void setDateStamp ()
+//    {
+//        this.dateStamp = raw.getDateStamp() ;
+//    }
 
     public LocalDateTime getDateStamp ()
     {
@@ -99,10 +116,10 @@ public class Measurement implements Serializable
     }
 
     // barometer
-    public void setAirpressure ()
-    {
-        this.airpressure = ValueConverter.airPressure(raw.getBarometer());
-    }
+//    public void setAirpressure ()
+//    {
+//        this.airpressure = ValueConverter.airPressure(raw.getBarometer());
+//    }
 
     public double getAirpressure ()
     {
@@ -110,10 +127,10 @@ public class Measurement implements Serializable
     }
 
     // insideTemp
-    public void setInsideTemp ()
-    {
-        this.insideTempC = ValueConverter.temperature(raw.getInsideTemp());
-    }
+//    public void setInsideTemp ()
+//    {
+//        this.insideTempC = ValueConverter.temperature(raw.getInsideTemp());
+//    }
 
     public double getInsideTemp ()
     {
@@ -121,10 +138,10 @@ public class Measurement implements Serializable
     }
 
     // insideHum
-    public void setInsideHum ()
-    {
-        this.insideHum = ValueConverter.humidity(raw.getInsideHum());
-    }
+//    public void setInsideHum ()
+//    {
+//        this.insideHum = ValueConverter.humidity(raw.getInsideHum());
+//    }
 
     public double getInsideHum ()
     {
@@ -132,10 +149,10 @@ public class Measurement implements Serializable
     }
 
     // outsideTemp
-    public void setOutsideTemp ()
-    {
-        this.outsideTempC = ValueConverter.temperature(raw.getOutsideTemp());
-    }
+//    public void setOutsideTemp ()
+//    {
+//        this.outsideTempC = ValueConverter.temperature(raw.getOutsideTemp());
+//    }
 
     public double getOutsideTemp ()
     {
@@ -143,10 +160,10 @@ public class Measurement implements Serializable
     }
 
     // windSpeed
-    public void setWindSpeed ()
-    {
-        this.windSpeedkmh = ValueConverter.windSpeed(raw.getWindSpeed());
-    }
+//    public void setWindSpeed ()
+//    {
+//        this.windSpeedkmh = ValueConverter.windSpeed(raw.getWindSpeed());
+//    }
 
     public double getWindSpeed ()
     {
@@ -154,10 +171,10 @@ public class Measurement implements Serializable
     }
 
     // avgWindSpeed
-    public void setAvgWindSpeed ()
-    {
-        this.avgWindSpeedkmh = ValueConverter.windSpeed(raw.getAvgWindSpeed());
-    }
+//    public void setAvgWindSpeed ()
+//    {
+//        this.avgWindSpeedkmh = ValueConverter.windSpeed(raw.getAvgWindSpeed());
+//    }
 
     public double getAvgWindSpeed ()
     {
@@ -165,10 +182,10 @@ public class Measurement implements Serializable
     }
 
     // windDir
-    public void setWindDir ()
-    {
-        this.windDir = ValueConverter.windDirection(raw.getWindDir());
-    }
+//    public void setWindDir ()
+//    {
+//        this.windDir = ValueConverter.windDirection(raw.getWindDir());
+//    }
 
     public double getWindDir ()
     {
@@ -176,10 +193,10 @@ public class Measurement implements Serializable
     }
 
     // outsideHum
-    public void setOutsideHum ()
-    {
-        this.outsideHum = ValueConverter.humidity(raw.getOutsideHum());
-    }
+//    public void setOutsideHum ()
+//    {
+//        this.outsideHum = ValueConverter.humidity(raw.getOutsideHum());
+//    }
 
     public double getOutsideHum ()
     {
@@ -187,10 +204,10 @@ public class Measurement implements Serializable
     }
 
     // rainRate
-    public void setRainRate ()
-    {
-        this.rainRatemm = ValueConverter.rainMeter(raw.getRainRate());
-    }
+//    public void setRainRate ()
+//    {
+//        this.rainRatemm = ValueConverter.rainMeter(raw.getRainRate());
+//    }
 
     public double getRainRate ()
     {
@@ -198,10 +215,10 @@ public class Measurement implements Serializable
     }
 
     // UVLevel
-    public void setUVLevel ()
-    {
-        this.UVLevel = ValueConverter.uvIndex(raw.getUVLevel());
-    }
+//    public void setUVLevel ()
+//    {
+//        this.UVLevel = ValueConverter.uvIndex(raw.getUVLevel());
+//    }
 
     public double getUVLevel ()
     {
@@ -209,20 +226,20 @@ public class Measurement implements Serializable
     }
 
     // solarRad
-    public void setSolarRad ()
-    {
-        this.solarRad = raw.getSolarRad();
-    }
+//    public void setSolarRad ()
+//    {
+//        this.solarRad = raw.getSolarRad();
+//    }
     public double getSolarRad ()
     {
         return solarRad;
     }
 
     // xmitBatt
-    public void setXmitBatt ()
-    {
-        this.xmitBatt = raw.getXmitBatt();
-    }
+//    public void setXmitBatt ()
+//    {
+//        this.xmitBatt = raw.getXmitBatt();
+//    }
 
     public double getXmitBatt ()
     {
@@ -230,10 +247,10 @@ public class Measurement implements Serializable
     }
 
     // battLevel
-    public void setBattLevel ()
-    {
-        this.battLevel = ValueConverter.batteryLevel(raw.getBattLevel());
-    }
+//    public void setBattLevel ()
+//    {
+//        this.battLevel = ValueConverter.batteryLevel(raw.getBattLevel());
+//    }
 
     public double getBattLevel ()
     {
@@ -241,10 +258,10 @@ public class Measurement implements Serializable
     }
 
     // foreIcon
-    public void setForeIcon ()
-    {
-        this.foreIcon = raw.getForeIcon();
-    }
+//    public void setForeIcon ()
+//    {
+//        this.foreIcon = raw.getForeIcon();
+//    }
 
     public double getForeIcon ()
     {
@@ -252,20 +269,20 @@ public class Measurement implements Serializable
     }
 
     // sunrise
-    public void setSunrise ()
-    {
-        this.sunrise = ValueConverter.sunRise(raw.getSunrise());
-    }
+//    public void setSunrise ()
+//    {
+//        this.sunrise = ValueConverter.sunRise(raw.getSunrise());
+//    }
     public String getSunrise ()
     {
         return sunrise;
     }
 
     // sunset
-    public void setSunset ()
-    {
-        this.sunset = ValueConverter.sunSet(raw.getSunset());
-    }
+//    public void setSunset ()
+//    {
+//        this.sunset = ValueConverter.sunSet(raw.getSunset());
+//    }
 
     public String getSunset ()
     {

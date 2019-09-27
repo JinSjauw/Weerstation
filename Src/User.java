@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 
+
 public class User {
     public static void main(String[] args) {
 
@@ -13,6 +14,14 @@ public class User {
         System.out.println(RD);
         System.out.println("");
         System.out.println(ND);
+        String outsidetempgui = Double.toString(ND.getOutsideTemp());
+        IO.init();
+        IO.writeShort(0x18, outsidetempgui.charAt(0));
+        IO.writeShort(0x16,outsidetempgui.charAt(1));
+        IO.writeShort(0x14,outsidetempgui.charAt(3));
+        IO.writeShort(0x12,12);
+        IO.delay(1000);
+        System.out.println(outsidetempgui);
 
     }
 }

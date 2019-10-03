@@ -1,5 +1,5 @@
 public class ValueConverter {
-    ValueConverterTest test = new ValueConverterTest();
+   // ValueConverterTest test = new ValueConverterTest();
     //excel regel 748
 
     //public static void main(String[] args) {
@@ -131,7 +131,7 @@ public class ValueConverter {
      */
     public static double humidity(short rawValue){
 
-        //WIP
+        //1:1 ratio
         return rawValue;
     }
     /** windSpeed
@@ -255,7 +255,27 @@ public class ValueConverter {
 
         return dewpoint;
     }
+    public static double heatindex(double outsidetempC, double outsidehum){
 
+        double C1 = -8.785;
+        double C2 = 2.339;
+        double C3 = -0.016;
+        double C4 = 1.61;
+        double C5 = -0.012;
+        double C6 = -0.146;
+        double C7 = 0.000725;
+        double C8 = 0.0022;
+        double C9 = -0.0000036;
+
+        double heatindex = C1 + C2*outsidehum + C3*Math.pow(outsidehum,2) + C4*outsidetempC + C5*Math.pow(outsidetempC,2)  + C6*outsidetempC*outsidehum + C7*Math.pow(outsidehum,2)*outsidetempC + C8*outsidehum*Math.pow(outsidetempC,2) + C9*Math.pow(outsidehum,2)*Math.pow(outsidetempC,2);
+//        Met T is de temperatuur in ºC en H is de
+//        RH in %. C1-C9 zijn constanten met
+//        onderstaande waarde (afgerond):
+
+
+
+        return heatindex;
+    }
 
 
 

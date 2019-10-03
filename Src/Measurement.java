@@ -289,6 +289,8 @@ public class Measurement implements Serializable
         return sunset;
     }
 
+    public
+
     public String toString()
     {
         //afronding Luchtdruk

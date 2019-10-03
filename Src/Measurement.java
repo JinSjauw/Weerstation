@@ -289,7 +289,10 @@ public class Measurement implements Serializable
         return sunset;
     }
 
-    public
+    public Boolean isValid(){
+      Boolean valid = false;
+        return valid;
+}
 
     public String toString()
     {

@@ -1,3 +1,6 @@
+//import sun.security.ec.ECDSASignature;
+
+import javax.xml.crypto.Data;
 import java.time.*;
 import java.time.temporal.*;
 import java.util.ArrayList;
@@ -87,6 +90,7 @@ public class Period {
 	 * Builds an ArrayList of measurements. This method also filters out any 'bad' measurements
 	 * @return a filtered list of measurements
 	 */
+	//-------------------------------------------------------------------------
 	public ArrayList<Measurement> getMeasurements() {
 		ArrayList<Measurement> measurements = new ArrayList<>();
 		ArrayList<RawMeasurement> rawMeasurements = getRawMeasurements();
@@ -98,6 +102,15 @@ public class Period {
 		}
 		return measurements;
 	}
+	//-----------------------------------------------------------------------------
+
+	//------------------Array List---------------------------------------------------
+//	LocalDateTime Begin;
+//	LocalDateTime End;
+//	ArrayList<RawMeasurement> RD = DatabaseConnection.getMeasurementsBetween(Begin, End);
+
+
+	//-------------------------------------------------------------------------------
 
 
 	/**
@@ -129,6 +142,8 @@ public class Period {
 	/**
 	 * Todo more methods
 	 */
+	 public void Median(){
 
+	 }
 
 }

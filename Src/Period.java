@@ -1,3 +1,6 @@
+//import sun.security.ec.ECDSASignature;
+
+import javax.xml.crypto.Data;
 import java.time.*;
 import java.time.temporal.*;
 import java.util.ArrayList;
@@ -87,6 +90,7 @@ public class Period {
 	 * Builds an ArrayList of measurements. This method also filters out any 'bad' measurements
 	 * @return a filtered list of measurements
 	 */
+	//-------------------------------------------------------------------------
 	public ArrayList<Measurement> getMeasurements() {
 		ArrayList<Measurement> measurements = new ArrayList<>();
 		ArrayList<RawMeasurement> rawMeasurements = getRawMeasurements();
@@ -98,6 +102,15 @@ public class Period {
 		}
 		return measurements;
 	}
+	//-----------------------------------------------------------------------------
+
+	//------------------Array List---------------------------------------------------
+//	LocalDateTime Begin;
+//	LocalDateTime End;
+//	ArrayList<RawMeasurement> RD = DatabaseConnection.getMeasurementsBetween(Begin, End);
+
+
+	//-------------------------------------------------------------------------------
 
 
 	/**
@@ -106,10 +119,10 @@ public class Period {
 	 */
 	public double getAverageOutsideTemperature()
 	{
-		ArrayList<Measurement> measurements = getMeasurements();
-
+		ArrayList<Double> outsidetemplist = outsidetemp();
+		//ArrayList<Measurement> measurements = getMeasurements();
 		//calculate average outside temperature and return it
-		return measurements.get(0).getOutsideTemp();
+		return average(outsidetemplist);
 	}
 
 	/**
@@ -129,6 +142,59 @@ public class Period {
 	/**
 	 * Todo more methods
 	 */
+	 public void Median(){
+
+	 }
+	public ArrayList<Double> outsidetemp(){
+		ArrayList<Measurement> measurements = getMeasurements();
+		ArrayList getallen = new ArrayList();
+		for (Measurement numbers: measurements){
+			getallen.add(numbers.getOutsideTemp());
+		}
+
+		return getallen;
+	}
+
+
+	public double sum(ArrayList<Double> list) {
+
+		double plus = 0;
+		for (double thing:list){
+			plus = plus + thing;
+		}
+		return(plus);
+	}
+
+	public double average (ArrayList<Double> list){
+		//ArrayList list =outsidetemp();
+		double amount = list.size();
+		double average = (sum(list)/amount);
+		return average;
+	}
+
+	public double  variance(){
+
+		ArrayList<Double>getallen = outsidetemp();
+		//avg
+		double avg = average(getallen);
+		double var = 0;
+		int amount = 0;
+		for (double thing : getallen) {
+			amount++;
+		}
+		int tamount = amount;
+		while (amount != 0) {
+			amount--;
+			var = var + Math.pow((getallen.get(amount)-avg),2);
+		}
+		var = var/(tamount-1);
+
+		return var;
+	}
+
+
+
+
 
 
 }

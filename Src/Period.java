@@ -119,10 +119,10 @@ public class Period {
 	 */
 	public double getAverageOutsideTemperature()
 	{
-		ArrayList<Measurement> measurements = getMeasurements();
-
+		ArrayList<Double> outsidetemplist = outsidetemp();
+		//ArrayList<Measurement> measurements = getMeasurements();
 		//calculate average outside temperature and return it
-		return measurements.get(0).getOutsideTemp();
+		return average(outsidetemplist);
 	}
 
 	/**
@@ -147,16 +147,15 @@ public class Period {
 	 }
 	public ArrayList<Double> outsidetemp(){
 		ArrayList<Measurement> measurements = getMeasurements();
-		double numlist;
 		ArrayList getallen = new ArrayList();
 		for (Measurement numbers: measurements){
-			numlist = numbers.getOutsideTemp();
-			getallen.add(numlist);
-
+			getallen.add(numbers.getOutsideTemp());
 		}
 
 		return getallen;
 	}
+
+
 	public double sum(ArrayList<Double> list) {
 
 		double plus = 0;
@@ -166,9 +165,8 @@ public class Period {
 		return(plus);
 	}
 
-
-	public double average (){
-		ArrayList list =outsidetemp();
+	public double average (ArrayList<Double> list){
+		//ArrayList list =outsidetemp();
 		double amount = list.size();
 		double average = (sum(list)/amount);
 		return average;
@@ -178,7 +176,7 @@ public class Period {
 
 		ArrayList<Double>getallen = outsidetemp();
 		//avg
-		double avg = average();
+		double avg = average(getallen);
 		double var = 0;
 		int amount = 0;
 		for (double thing : getallen) {

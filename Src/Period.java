@@ -192,7 +192,28 @@ public class Period {
 		return var;
 	}
 
+	public double largest(ArrayList<Double> measurements) {
+		double largest = measurements.get(0);
 
+		for (double number : measurements) {
+			if (number < largest) {
+				largest = number;
+			}
+		}
+		return largest;
+	}
+
+	public double smallest(ArrayList<Double> measurement) {
+
+		double smallest = measurement.get(0);
+
+		for (double number : measurement) {
+			if (number > smallest) {
+				smallest = number;
+			}
+		}
+		return smallest;
+	}
 
 
 

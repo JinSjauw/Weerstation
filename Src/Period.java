@@ -1,3 +1,6 @@
+//import sun.security.ec.ECDSASignature;
+
+import javax.xml.crypto.Data;
 import java.time.*;
 import java.time.temporal.*;
 import java.util.ArrayList;
@@ -87,6 +90,7 @@ public class Period {
 	 * Builds an ArrayList of measurements. This method also filters out any 'bad' measurements
 	 * @return a filtered list of measurements
 	 */
+	//-------------------------------------------------------------------------
 	public ArrayList<Measurement> getMeasurements() {
 		ArrayList<Measurement> measurements = new ArrayList<>();
 		ArrayList<RawMeasurement> rawMeasurements = getRawMeasurements();
@@ -98,6 +102,15 @@ public class Period {
 		}
 		return measurements;
 	}
+	//-----------------------------------------------------------------------------
+
+	//------------------Array List---------------------------------------------------
+//	LocalDateTime Begin;
+//	LocalDateTime End;
+//	ArrayList<RawMeasurement> RD = DatabaseConnection.getMeasurementsBetween(Begin, End);
+
+
+	//-------------------------------------------------------------------------------
 
 
 	/**
@@ -129,18 +142,21 @@ public class Period {
 	/**
 	 * Todo more methods
 	 */
-//arraylist outsidetemp method:
-public ArrayList<Double> outsidetemp(){
-	ArrayList<Measurement> measurements = getMeasurements();
-	double numlist;
-	ArrayList getallen = new ArrayList();
-		for (Measurement numbers: measurements){
-		numlist = numbers.getOutsideTemp();
-		getallen.add(numlist);
+	 public void Median(){
 
-	}
+	 }
+	public ArrayList<Double> outsidetemp(){
+		ArrayList<Measurement> measurements = getMeasurements();
+		double numlist;
+		ArrayList getallen = new ArrayList();
+		for (Measurement numbers: measurements){
+			numlist = numbers.getOutsideTemp();
+			getallen.add(numlist);
+
+		}
+
 		return getallen;
-}
+	}
 	public double sum(ArrayList<Double> list) {
 
 		double plus = 0;
@@ -177,6 +193,8 @@ public ArrayList<Double> outsidetemp(){
 
 		return var;
 	}
+
+
 
 
 

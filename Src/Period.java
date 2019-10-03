@@ -125,6 +125,12 @@ public class Period {
 		return average(outsidetemplist);
 	}
 
+	public ArrayList<Double> getModusOutsideTemperature(){
+		ArrayList<Double> outsideTempList = outsidetemp();
+
+		return modus(outsideTempList);
+	}
+
 	/**
 	 * Todo
 	 */
@@ -216,6 +222,32 @@ public class Period {
 	}
 
 
+    public ArrayList<Double> modus(ArrayList<Double> measurements){
+        //ArrayList<Measurement> measurements = getMeasurements();
 
+        int maxCount = 0;
+        ArrayList<Double> modae = new ArrayList<>();
 
-}
+        for (double forEachMeas : measurements) {
+			int count = 0;
+
+			for (double countingEachMeas : measurements) {
+				if (forEachMeas == countingEachMeas) {
+					++count;
+				}
+				if (count > maxCount) {
+					maxCount = count;
+
+                    modae.clear();
+                    modae.add(countingEachMeas);
+
+                } else if (count == maxCount){
+                    if (!modae.contains(countingEachMeas)){
+                        modae.add(countingEachMeas);
+                    }
+                }
+            }
+        }
+        return modae;
+    }
+				}

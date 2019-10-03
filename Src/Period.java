@@ -129,6 +129,56 @@ public class Period {
 	/**
 	 * Todo more methods
 	 */
+//arraylist outsidetemp method:
+public ArrayList<Double> outsidetemp(){
+	ArrayList<Measurement> measurements = getMeasurements();
+	double numlist;
+	ArrayList getallen = new ArrayList();
+		for (Measurement numbers: measurements){
+		numlist = numbers.getOutsideTemp();
+		getallen.add(numlist);
+
+	}
+		return getallen;
+}
+	public double sum(ArrayList<Double> list) {
+
+		double plus = 0;
+		for (double thing:list){
+			plus = plus + thing;
+		}
+		return(plus);
+	}
+
+
+	public double average (){
+		ArrayList list =outsidetemp();
+		double amount = list.size();
+		double average = (sum(list)/amount);
+		return average;
+	}
+
+	public double  variance(){
+
+		ArrayList<Double>getallen = outsidetemp();
+		//avg
+		double avg = average();
+		double var = 0;
+		int amount = 0;
+		for (double thing : getallen) {
+			amount++;
+		}
+		int tamount = amount;
+		while (amount != 0) {
+			amount--;
+			var = var + Math.pow((getallen.get(amount)-avg),2);
+		}
+		var = var/(tamount-1);
+
+		return var;
+	}
+
+
 
 
 }

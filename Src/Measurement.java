@@ -1,5 +1,3 @@
-
-
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -8,7 +6,7 @@ public class Measurement implements Serializable
     RawMeasurement RawData = DatabaseConnection.getMostRecentMeasurement();
 
     //Maak een class (object?) aan
-    RawMeasurement raw;
+    private RawMeasurement raw;
     //--------------------------------
     private String stationId;
     private LocalDateTime dateStamp;
@@ -31,7 +29,7 @@ public class Measurement implements Serializable
 
     public Measurement(RawMeasurement rawMeasurement)
     {
-
+    this.raw = rawMeasurement;
     }
 
     //Methode om alle setters te roepen
@@ -117,7 +115,7 @@ public class Measurement implements Serializable
 
     public double getOutsideTemp ()
     {
-        this.outsideTempC = ValueConverter.temperature(raw.getOutsideTemp());
+        this.outsideTempC = ValueConverter.temperature(this.raw.getOutsideTemp());
         return outsideTempC;
     }
 
@@ -217,7 +215,10 @@ public class Measurement implements Serializable
     }
 
     public Boolean isValid(){
-        Boolean valid = false;
+        Boolean valid = true;
+        if (this.raw.getOutsideTemp()>=30000||this.raw.getAvgWindSpeed()>=200||this.raw.getWindSpeed()>=200||this.raw.getWindDir()>=361||this.raw.getOutsideHum()>=101||this.raw.getRainRate()>=30000||this.raw.getUVLevel()>=200||this.raw.getSolarRad()>=30000){
+            valid =false;
+        }
         return valid;
     }
 

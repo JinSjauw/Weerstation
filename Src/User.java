@@ -4,8 +4,9 @@ import java.util.ArrayList;
 public class User {
     public static void main(String[] args) {
 
-        Measurement ND = new Measurement();
         RawMeasurement RD = DatabaseConnection.getMostRecentMeasurement();
+        Measurement ND = new Measurement(RD);
+
 
         //Stuur het RawMeasurement object door naar Measurement
         ND.setData(RD);

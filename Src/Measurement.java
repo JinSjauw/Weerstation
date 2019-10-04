@@ -216,6 +216,9 @@ public class Measurement implements Serializable
 
     public Boolean isValid(){
         Boolean valid = true;
+        if (this.raw.getOutsideTemp()>=30000||this.raw.getAvgWindSpeed()>=200||this.raw.getWindSpeed()>=200||this.raw.getWindDir()>=361||this.raw.getOutsideHum()>=101||this.raw.getRainRate()>=30000||this.raw.getUVLevel()>=200||this.raw.getSolarRad()>=30000){
+            valid =false;
+        }
         return valid;
     }
 

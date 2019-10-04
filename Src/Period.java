@@ -120,17 +120,163 @@ public class Period {
 	public double getAverageOutsideTemperature()
 	{
 		ArrayList<Double> outsidetemplist = outsidetemp();
-		//ArrayList<Measurement> measurements = getMeasurements();
-		//calculate average outside temperature and return it
 		return average(outsidetemplist);
 	}
 
-	public double getModusOutsideTemperature(){
+	public double getMaxOutsideTemperature()
+	{
+		ArrayList<Double> outsidetemplist = outsidetemp();
+		return largest(outsidetemplist);
+	}
+
+	public double getMinOutsideTemperature()
+	{
+		ArrayList<Double> outsidetemplist = outsidetemp();
+		return smallest(outsidetemplist);
+	}
+
+	public ArrayList<Double> getModusOutsideTemperature(){
 		ArrayList<Double> outsideTempList = outsidetemp();
 
 
-		return getMedian(outsideTempList);
+		return modus(outsideTempList);
 	}
+
+	public double getVarianceOutsideTemperature()
+	{
+		ArrayList<Double> outsidetemplist = outsidetemp();
+		return variance(outsidetemplist);
+	}
+
+	public double getMedianOutsideTemperature()
+	{
+		ArrayList<Double> outsidetemplist = outsidetemp();
+		return getMedian(outsidetemplist);
+	}
+
+
+	////
+
+
+	public double getAverageInsideTemperature()
+	{
+		ArrayList<Double> insidetemplist = insidetemp();
+		return average(insidetemplist);
+	}
+
+	public double getMaxInsideTemperature()
+	{
+		ArrayList<Double> insidetemplist = insidetemp();
+		return largest(insidetemplist);
+	}
+
+	public double getMinInsideTemperature()
+	{
+		ArrayList<Double> insidetemplist = insidetemp();
+		return smallest(insidetemplist);
+	}
+
+	public ArrayList<Double> getModusInsideTemperature(){
+		ArrayList<Double> insideTempList = insidetemp();
+
+		return modus(insideTempList);
+	}
+
+	public double getVarianceInsideTemperature()
+	{
+		ArrayList<Double> insidetemplist = insidetemp();
+		return variance(insidetemplist);
+	}
+
+	public double getMedianInsideTemperature()
+	{
+		ArrayList<Double> insidetemplist = insidetemp();
+		return getMedian(insidetemplist);
+	}
+
+
+	////
+
+
+	public double getAverageAirpressure()
+	{
+		ArrayList<Double> airpressurelist = airPressure();
+		return average(airpressurelist);
+	}
+
+	public double getMaxAirpressure()
+	{
+		ArrayList<Double> airpressurelist = airPressure();
+		return largest(airpressurelist);
+	}
+
+	public double getMinAirpressure()
+	{
+		ArrayList<Double> airpressurelist = airPressure();
+		return smallest(airpressurelist);
+	}
+
+	public ArrayList<Double> getModusAirpressure(){
+		ArrayList<Double> airpressureList = airPressure();
+
+		return modus(airpressureList);
+	}
+
+	public double getVarianceAirpressure()
+	{
+		ArrayList<Double> airpressurelist = airPressure();
+		return variance(airpressurelist);
+	}
+
+	public double getMedianAirpressure()
+	{
+		ArrayList<Double> airpressurelist = airPressure();
+		return getMedian(airpressurelist);
+	}
+
+
+	////
+
+
+	public double getAverageOutsidehum()
+	{
+		ArrayList<Double> outsidehumlist = outsideHum();
+		return average(outsidehumlist);
+	}
+
+	public double getMaxOutsidehum()
+	{
+		ArrayList<Double> outsidehumlist = outsideHum();
+		return largest(outsidehumlist);
+	}
+
+	public double getMinOutsideHum()
+	{
+		ArrayList<Double> outsidehumlist = outsideHum();
+		return smallest(outsidehumlist);
+	}
+
+	public ArrayList<Double> getModusOutsideHum(){
+		ArrayList<Double> outsidehumList = outsideHum();
+
+		return modus(outsidehumList);
+	}
+
+	public double getVarianceOutsidehum()
+	{
+		ArrayList<Double> outsidehumlist = outsideHum();
+		return variance(outsidehumlist);
+	}
+
+	public double getMedianOutsidehum() {
+		ArrayList<Double> outsidehumlist = outsideHum();
+		return getMedian(outsidehumlist);
+	}
+
+
+
+
+
 
 	/**
 	 * Todo
@@ -176,6 +322,53 @@ public class Period {
 	}
 
 
+	////
+
+
+
+	public ArrayList<Double> insidetemp(){
+		ArrayList<Measurement> measurements = getMeasurements();
+		ArrayList getallen = new ArrayList();
+		for (Measurement numbers: measurements){
+			getallen.add(numbers.getInsideTemp());
+		}
+
+		return getallen;
+	}
+
+
+	////
+
+
+
+	public ArrayList<Double> outsideHum(){
+		ArrayList<Measurement> measurements = getMeasurements();
+		ArrayList getallen = new ArrayList();
+		for (Measurement numbers: measurements){
+			getallen.add(numbers.getOutsideHum());
+		}
+
+		return getallen;
+	}
+
+
+	////
+
+
+
+	public ArrayList<Double> airPressure(){
+		ArrayList<Measurement> measurements = getMeasurements();
+		ArrayList getallen = new ArrayList();
+		for (Measurement numbers: measurements){
+			getallen.add(numbers.getAirpressure());
+		}
+
+		return getallen;
+	}
+
+
+
+
 	public double sum(ArrayList<Double> list) {
 
 		double plus = 0;
@@ -192,16 +385,10 @@ public class Period {
 		return average;
 	}
 
-	public double  variance(){
-
-		ArrayList<Double>getallen = outsidetemp();
-		//avg
+	public double  variance(ArrayList<Double>getallen){
 		double avg = average(getallen);
 		double var = 0;
-		int amount = 0;
-		for (double thing : getallen) {
-			amount++;
-		}
+		int amount = getallen.size();
 		int tamount = amount;
 		while (amount != 0) {
 			amount--;

@@ -125,10 +125,11 @@ public class Period {
 		return average(outsidetemplist);
 	}
 
-	public ArrayList<Double> getModusOutsideTemperature(){
+	public double getModusOutsideTemperature(){
 		ArrayList<Double> outsideTempList = outsidetemp();
 
-		return modus(outsideTempList);
+
+		return getMedian(outsideTempList);
 	}
 
 	/**
@@ -148,9 +149,22 @@ public class Period {
 	/**
 	 * Todo more methods
 	 */
-	 public void Median(){
+	 public double getMedian(ArrayList<Double> list)
+	 {
+	 	double middle;
+		int total = list.size();
+		if(total % 2 == 0 ){
+			middle = (list.get(list.size()/2) + list.get(list.size() / 2 - 1));
+		}
+		else
+		{
+			middle = list.get(list.size() / 2);
+		}
 
+	 	return middle;
 	 }
+
+
 	public ArrayList<Double> outsidetemp(){
 		ArrayList<Measurement> measurements = getMeasurements();
 		ArrayList getallen = new ArrayList();
